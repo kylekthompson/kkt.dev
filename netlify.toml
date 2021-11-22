@@ -2,9 +2,9 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.80.0"
-  NODE_VERSION = "14.15.4"
-  YARN_VERSION = "1.22.10"
+  HUGO_VERSION = "0.89.4"
+  NODE_VERSION = "16.6.0"
+  YARN_VERSION = "1.22.17"
   NETLIFY_USE_YARN = "true"
 
 [context.production]
