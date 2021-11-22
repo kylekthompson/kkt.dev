@@ -3,6 +3,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=hugo,node
 
 ### Hugo ###
+# lock file
+.hugo_build.lock
+
 # Generated files by hugo
 /public/
 /resources/_gen/

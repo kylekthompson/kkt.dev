@@ -9,11 +9,7 @@
   />
 
   <div class="home-content">
-    <p>
-      I'm Kyle Thompson, a Software Engineer at
-      <a href="https://root.engineering/" target="_blank" rel="noopener noreferrer">Root Insurance</a>.
-      This is a place for my thoughts on mostly programming-related topics. Everything I write here is my own opinion.
-    </p>
+    <p>I'm Kyle Thompson, a Software Engineer. This is a place for my thoughts on mostly programming-related topics.</p>
 
     {{ $posts := (where .Site.RegularPages "Section" "blog") }}
     {{ if gt (len $posts) 0 }}
