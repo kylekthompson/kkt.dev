@@ -17,6 +17,12 @@
   margin-left: 0;
 }
 
+.home-post {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing;
+}
+
 .home-post-meta {
   font-family: monospace;
   color: lighten($off-black-color, 25%);
