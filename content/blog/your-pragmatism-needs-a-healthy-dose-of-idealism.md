@@ -19,13 +19,13 @@ spectrum is mostly about how _good_ the software should be. Pragmatism says "goo
 This got me thinking a bit about how pragmatism affects the software we write. We'll dive into things a bit deeper, but
 in short, I think people lean too far into pragmatism as their default and it comes at a big cost.
 
-# The cost of pragmatism as the north star
+## The cost of pragmatism as the north star
 
 Pragmatism as the sole and guiding principle in theory sounds good. Taking a realistic approach to software and building
 good enough solutions will get your product out to market faster, but taken too far it can be detrimental to your
 business.
 
-## Lower quality solutions
+### Lower quality solutions
 
 One of the first things to go in a good enough solution (probably just after cutting feature scope) is the internal
 quality of the solution. Rather than thoughtfully modifying the software to support a new use case, something quick is
@@ -40,7 +40,7 @@ Soon, you'll find yourself in a place where a seemingly simple feature (compared
 getting estimates in the order of engineer-months as you realize you _have_ to massively change the system. You've been
 backed into a corner and simply cannot deliver.
 
-## Misalignment with the business
+### Misalignment with the business
 
 So, how did we get in this situation where it takes engineer-months to implement something "simple"? I'm of the opinion
 that this is because our software is now fundamentally misaligned with the business. In this case, engineering rushed
@@ -51,14 +51,14 @@ the way the business _thinks_ it works. Because of this misalignment, features t
 Once or twice, this probably doesn't matter, but when the decision is made time and time again, the choices pile up
 until there is no way to dig yourself out (at least not easily).
 
-# How much idealism is right?
+## How much idealism is right?
 
 None of this is to say, though, that you should lean too far on the idealism side. Waiting for perfect might mean that
 your software never sees the light of day. Instead, decisions should be a careful cost/benefit analysis. To clarify,
 we're not talking about "analysis paralysis" or "letting perfect be the enemy of good." What we're talking about is a
 few days or a week to really dive in and understand the problem you're trying to solve.
 
-## Known problem spaces
+### Known problem spaces
 
 In businesses where you already know how it's supposed to work, this should be a no-brainer. Maybe you need to get to
 market fast, but that little bit of analysis and discussion to truly understand your problem is _not_ going to kill the
@@ -69,7 +69,7 @@ still launch with an MVP. Feel free to cut some features, but do so with an unde
 the bigger picture. That way when you need to implement those features you haven't cornered yourself and you haven't
 inadvertantly limited the business's options.
 
-## Unknown problem spaces
+### Unknown problem spaces
 
 On the other hand, maybe your business is brand-new, unexplored territory and you need some time to learn how it's
 _supposed_ to work. In that case, sure you should probably build a good enough solution first. Once you have a better

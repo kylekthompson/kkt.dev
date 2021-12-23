@@ -100,7 +100,7 @@ end
 While we do have some small things at the bottom of the stack (like the profile and account), we also have a "really big
 thing" at the very top of the stack.
 
-# Why can't this scale?
+## Why can't this scale?
 
 In a lot of cases, this might not be a big deal (and we definitely should avoid overcomplicating the code if that is the
 case). That being said, in a sufficiently complex domain like ours, we'll probably run into issues. While those issues
@@ -117,7 +117,7 @@ afterthought of sorts, but it should naturally become easier with the solution w
 
 Before I get started, though, I think it will help to understand why I'm thinking about these problems.
 
-# Why is this important to me?
+## Why is this important to me?
 
 At [Root](https://root.engineering/), I'm currently an engineer on two teams: Application Infrastructure (not quite what
 it sounds like) and New Products/Product Variants.
@@ -143,7 +143,7 @@ properly build their features.
 
 Anyway- let's move on and find out how to scale our application.
 
-# When tightly coupled pieces become a problem
+## When tightly coupled pieces become a problem
 
 At Root, we currently have two variants of car insurance. Let's call them "drive-first" and "drive-later." They are
 more-or-less what they sound like. In drive-first, you'll download our app, sign up, take a test drive, get a quote
@@ -210,13 +210,13 @@ As written, we're going to have a really hard time supporting drive-later. We do
 since all of the pieces are so tightly coupled, we're going to end up sweating through the night waiting for our
 pagers to go off. Instead of dealing with that, let's write our code in a different way.
 
-# How do we avoid the risks of tight coupling?
+## How do we avoid the risks of tight coupling?
 
 In an ideal system, we should be able to easily support changing existing functionality or adding new functionality. To
 do that without fear of everything toppling over, we can re-think the structure of our code. Rather than building a big
 and tall stack of code, we should try to build a lot of small pieces that we can compose together in a short stack.
 
-## Small chunks of code with one purpose
+### Small chunks of code with one purpose
 
 Consider the previous process of purchasing a policy. I initially described it as a single process- from being some
 anonymous person all the way to being a policyholder. Is that actually the case, though?
@@ -231,7 +231,7 @@ how to run external reports and persist them. And so on for the other pieces.
 On their own, though, these smaller pieces are all pretty meaningless from a business perspective. You could almost go
 as far as thinking of them as third-party services or libraries if you wanted to.
 
-## Composing code into something meaningful
+### Composing code into something meaningful
 
 By itself, the "many small things" idea doesn't _quite_ work since there isn't a great way to define a whole business
 process as many small things (it's a little contradictory if you think about it).
@@ -251,14 +251,14 @@ Because we've already broken up a lot of our functionality into smaller pieces, 
 that better define the stages of the business can now compose those smaller pieces into something that provides value.
 And even better, if we want a new product variant, it's as simple as composing those pieces in a different way.
 
-# Making our application scalable
+## Making our application scalable
 
 Let's go back to the drive-first and drive-later product variants that we need to support and think through
 re-designing the models and services that we have so far to open them up to change. We're going to walk through making
 adjustments to the models and service layer to support purchasing a policy without taking a test drive in a
 "many small things" way.
 
-## Building many small, loosely-coupled models
+### Building many small, loosely-coupled models
 
 Let's step back and look at our existing modeling of this process to refresh our memory:
 
@@ -295,7 +295,7 @@ class Profile < ApplicationRecord
 end
 ```
 
-### Breaking dependencies between tightly-coupled models
+#### Breaking dependencies between tightly-coupled models
 
 To break up this tall stack, we'll start by breaking some dependencies (I've commented them out for clarity):
 
@@ -366,7 +366,7 @@ concerns and we've broken down the tall dependency graph into something shorter.
 - To create a policy, all we need is a quote with some premiums (so testing setup is a lot easier)
 - Policy creation isn't dependent at all on how a rate is created so bottom-of-the-stack changes won't ripple up
 
-### Modeling product variants
+#### Modeling product variants
 
 To properly support drive-first and drive-later, various aspects of our system will need to know about what "variant" a
 certain account is in. To handle that, we can introduce a new concept:
@@ -381,7 +381,7 @@ This model is pretty small, but also pretty powerful. By pushing this low in the
 we talked about earlier can say "Hey, what kind of variant am I working with here? We'll want to create rating data for
 that one." without depending on _everything_ in the system.
 
-## Building many small, loosely-coupled services
+### Building many small, loosely-coupled services
 
 On a similar note as the models, we also need a "many small things" approach with our services.
 
@@ -495,7 +495,7 @@ the "steps" to create a rate end up well-defined, so when we want to test out a 
 straightforward to do what we need- define a new rating data service that can build rating data for that specific
 variant.
 
-## Building and composing a new small thing
+### Building and composing a new small thing
 
 Now that we've done the upfront work to break down our "really big thing" into "many small things", let's make good use
 of that by adding support for our drive-later product variant. Previously, we defined a single
@@ -532,7 +532,7 @@ module PuppyBarkRatingDataService
 end
 ```
 
-# Wrapping up
+## Wrapping up
 
 So, we've gone from a very tall stack of code ready to fall over with any change into something that allows us to swap
 out or compose other small pieces. We can build drive-first, drive-later, and any other variant of auto insurance that
