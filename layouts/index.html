@@ -16,10 +16,9 @@
       <h2>Posts</h2>
       <ul class="home-post-list">
         {{ range $posts }}
-          <li>
-            <span class="home-post-meta">{{ .Date.Format .Site.Params.DateFormat }}</span>
-            &bullet;
+          <li class="home-post">
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="home-post-meta">{{ .Date.Format .Site.Params.DateFormat }}</span>
           </li>
         {{ end }}
       </ul>

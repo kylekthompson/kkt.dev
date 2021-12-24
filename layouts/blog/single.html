@@ -4,6 +4,14 @@
     <span class="blog-post-meta">{{ .Date.Format .Site.Params.DateFormat }}</span>
     &bullet;
     <span class="blog-post-meta">{{ .Params.Author }}</span>
+    {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
+
+    {{ if gt $ageDays 365 }}
+      <p class="blog-age-warning">
+        Heads up! This post is over a year old and might have out of date information or not align with my current
+        thinking. Feel free to read it anyway, but keep that in mind!
+      </p>
+    {{ end }}
     {{ .Content }}
   </article>
 {{ end }}

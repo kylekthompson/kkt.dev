@@ -21,7 +21,7 @@ looked like, and how we migrated to Kafka without any downtime.
 **Note**: I _have_ simplified this example a little. In our application we actually have multiple instances of the
 `PubSub` class I show below (and therefore multiple topics). For the sake of this overview, we'll use only one.
 
-# Our in-process pub/sub implementation
+## Our in-process pub/sub implementation
 
 Let's start this off with some code. This is a small example of how you might use our in-process pub/sub:
 
@@ -97,14 +97,14 @@ end
 
 As mentioned earlier, when we "publish" an event all of the subscribers are executed inline.
 
-# Our migration to Kafka
+## Our migration to Kafka
 
 Within our system, we have a good amount of business critical functionality running through our pub/sub setup. Up to
 this point, that wasn't a point of concern as it was just another piece of code executing. Moving to Kafka introduces
 another point of failure with a distributed system, so we had to de-risk our migration. To do so, we gathered data and
 took an incremental approach in cutting over.
 
-## Gathering analytics
+### Gathering analytics
 
 To fully understand the load we would be putting on this new system, we started by gathering data on our current usage
 of pub/sub. Primarily, we were interested (at this point) in how many messages per second we were consuming per
@@ -128,7 +128,7 @@ end
 
 We used these metrics to do some capacity planning for our Kafka cluster before implementing and cutting over.
 
-## Publishing and consuming messages (no-op)
+### Publishing and consuming messages (no-op)
 
 We didn't want to jump right into publishing and consuming pub/sub through Kafka (even with our analytics). Since we
 hadn't run a Kafka cluster in production yet, we wanted to be sure we understood how it would behave. To get ourselves
@@ -194,7 +194,7 @@ limit throughput (adjustable through an environment variable) and started publis
 After slowly scaling up to 100% publish chance in background workers and getting a good idea of the differences in
 timing to publish, we turned publishing to Kafka on in the web workers (again, slowly scaling up the publish chance).
 
-## Cutting over fully to publishing and consuming in Kafka
+### Cutting over fully to publishing and consuming in Kafka
 
 After letting the no-op implementation settle, we included additional metadata in our messages to Kafka to indicate
 whether the consumer should process the message and updated the consumer to consume the message based on. This value
@@ -250,7 +250,7 @@ class Consumer < Karafka::BaseConsumer
 end
 ```
 
-# Unexpected issues found once we cut over
+## Unexpected issues found once we cut over
 
 Like any big launch of an new system, you might run into some unexpected problems. So far, we've run into one problem
 worth mentioning.
@@ -270,7 +270,7 @@ There is a good overview of this issue and a hacky way to resolve it [in this Gi
 To solve the issue going forward, we implemented microbatches with a manual heartbeat after each in our consumer as
 suggested by the linked comment.
 
-# Annnd we're done!
+## Annnd we're done!
 
 All in all, we had a fairly seamless migration. The one issue mentioned above was a topic with very low importance, so
 we're chalking it up to a learning experience that will prevent issues in the future on our more important topics. Kafka
