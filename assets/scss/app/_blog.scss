@@ -11,6 +11,12 @@
   font-size: 1.4rem;
 }
 
+.blog-age-warning {
+  background-color: lighten($complementary-color, 25%);
+  border-radius: 5px;
+  padding: $spacing;
+}
+
 :not(pre) > code {
   background-color: $background-color;
 }
