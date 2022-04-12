@@ -4,34 +4,34 @@
 {{- end }}
 {{- end -}}
 
-http://kylekthompson.netlify.com https://nearlyserious.com 301!
-http://kylekthompson.netlify.com/* https://nearlyserious.com/:splat 301!
-https://kylekthompson.netlify.com https://nearlyserious.com 301!
-https://kylekthompson.netlify.com/* https://nearlyserious.com/:splat 301!
+http://kylekthompson.netlify.com https://kkt.dev 301!
+http://kylekthompson.netlify.com/* https://kkt.dev/:splat 301!
+https://kylekthompson.netlify.com https://kkt.dev 301!
+https://kylekthompson.netlify.com/* https://kkt.dev/:splat 301!
 
-http://kylekthompson.com https://nearlyserious.com 301!
-http://kylekthompson.com/* https://nearlyserious.com/:splat 301!
-http://www.kylekthompson.com https://nearlyserious.com 301!
-http://www.kylekthompson.com/* https://nearlyserious.com/:splat 301!
-https://kylekthompson.com https://nearlyserious.com 301!
-https://kylekthompson.com/* https://nearlyserious.com/:splat 301!
-https://www.kylekthompson.com https://nearlyserious.com 301!
-https://www.kylekthompson.com/* https://nearlyserious.com/:splat 301!
+http://kylekthompson.com https://kkt.dev 301!
+http://kylekthompson.com/* https://kkt.dev/:splat 301!
+http://www.kylekthompson.com https://kkt.dev 301!
+http://www.kylekthompson.com/* https://kkt.dev/:splat 301!
+https://kylekthompson.com https://kkt.dev 301!
+https://kylekthompson.com/* https://kkt.dev/:splat 301!
+https://www.kylekthompson.com https://kkt.dev 301!
+https://www.kylekthompson.com/* https://kkt.dev/:splat 301!
 
-http://kylekthompson.dev https://nearlyserious.com 301!
-http://kylekthompson.dev/* https://nearlyserious.com/:splat 301!
-http://www.kylekthompson.dev https://nearlyserious.com 301!
-http://www.kylekthompson.dev/* https://nearlyserious.com/:splat 301!
-https://kylekthompson.dev https://nearlyserious.com 301!
-https://kylekthompson.dev/* https://nearlyserious.com/:splat 301!
-https://www.kylekthompson.dev https://nearlyserious.com 301!
-https://www.kylekthompson.dev/* https://nearlyserious.com/:splat 301!
+http://nearlyserious.com https://kkt.dev 301!
+http://nearlyserious.com/* https://kkt.dev/:splat 301!
+http://www.nearlyserious.com https://kkt.dev 301!
+http://www.nearlyserious.com/* https://kkt.dev/:splat 301!
+https://nearlyserious.com https://kkt.dev 301!
+https://nearlyserious.com/* https://kkt.dev/:splat 301!
+https://www.nearlyserious.com https://kkt.dev 301!
+https://www.nearlyserious.com/* https://kkt.dev/:splat 301!
 
-https://nearlyserious.com/thoughts https://nearlyserious.com/blog 301!
-https://nearlyserious.com/thoughts/ https://nearlyserious.com/blog 301!
-https://nearlyserious.com/thoughts/* https://nearlyserious.com/blog/:splat 301!
+https://kkt.dev/thoughts https://kkt.dev/blog 301!
+https://kkt.dev/thoughts/ https://kkt.dev/blog 301!
+https://kkt.dev/thoughts/* https://kkt.dev/blog/:splat 301!
 
-http://www.nearlyserious.com https://nearlyserious.com 301!
-http://www.nearlyserious.com/* https://nearlyserious.com/:splat 301!
-https://www.nearlyserious.com https://nearlyserious.com 301!
-https://www.nearlyserious.com/* https://nearlyserious.com/:splat 301!
+http://www.kkt.dev https://kkt.dev 301!
+http://www.kkt.dev/* https://kkt.dev/:splat 301!
+https://www.kkt.dev https://kkt.dev 301!
+https://www.kkt.dev/* https://kkt.dev/:splat 301!

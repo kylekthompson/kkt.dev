@@ -1,11 +1,11 @@
 brandColor = "#3E7CB1"
 dateFormat = "2006-01-02"
 description = "Kyle Thompson's personal website"
-title = "Nearly Serious"
+title = "Kyle Thompson"
 
 twitterUsername = "kylekthomp"
 facebookAppId = "317388982278417"
 
 [author]
 name = "Kyle Thompson"
-email = "kyle@kylekthompson.com"
+email = "me@kkt.dev"
