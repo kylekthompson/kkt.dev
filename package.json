@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "autoprefixer": "^10.2.3",
-    "postcss": "^8.2.4",
+    "postcss": "^8.4.31",
     "postcss-cli": "^9.0.2"
   },
   "browserslist": [
