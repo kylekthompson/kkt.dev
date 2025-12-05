@@ -1,5 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import HeaderLink from './HeaderLink.astro';
+
+const posts = await getCollection('blog');
+const hasPosts = posts.length > 0;
 ---
 
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
@@ -7,9 +11,11 @@ import HeaderLink from './HeaderLink.astro';
 		<a href="/" class="font-bold text-lg text-navy-800 no-underline tracking-tight hover:text-accent transition-colors">
 			kkt
 		</a>
-		<div class="flex gap-8 md:gap-8">
-			<HeaderLink href="/blog">Writing</HeaderLink>
-		</div>
+		{hasPosts && (
+			<div class="flex gap-8 md:gap-8">
+				<HeaderLink href="/blog">Writing</HeaderLink>
+			</div>
+		)}
 		<div class="flex items-center gap-4">
 			<a
 				href="https://linkedin.com/in/kylekthompson"
