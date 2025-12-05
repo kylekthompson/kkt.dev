@@ -1,10 +1,18 @@
 {
-  "dependencies": {
-    "autoprefixer": "^10.2.3",
-    "postcss": "^8.2.4",
-    "postcss-cli": "^9.0.2"
+  "name": "kkt.dev",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "browserslist": [
-    "defaults"
-  ]
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.4",
+    "sharp": "^0.34.3"
+  }
 }
