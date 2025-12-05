@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/*
+  Custom design for kkt.dev
+  Navy blue palette with clean, technical aesthetic
+*/
+
+@theme {
+	/* Navy blue palette */
+	--color-navy-900: #0a1628;
+	--color-navy-800: #0f2140;
+	--color-navy-700: #1a3a5c;
+	--color-navy-600: #264b73;
+	--color-navy-500: #3b6b9a;
+	--color-navy-400: #5a8ab8;
+	--color-navy-300: #7da9cc;
+	--color-navy-200: #a8c8e0;
+	--color-navy-100: #d4e4f0;
+	--color-navy-50: #eef4f9;
+
+	/* Accent - bright blue (like Aussie Shepherd eyes) */
+	--color-accent: #4a9eff;
+	--color-accent-bright: #6bb3ff;
+	--color-accent-dim: #3d82d1;
+
+	/* Font family */
+	--font-sans: "Atkinson", system-ui, -apple-system, sans-serif;
+	--font-mono: "SF Mono", "Fira Code", "Fira Mono", Menlo, Monaco, monospace;
+}
+
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Base styles */
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Prose styling for blog content */
+.prose {
+	@apply text-slate-800 leading-relaxed;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	@apply text-navy-900 font-bold tracking-tight;
+}
+
+.prose h1 {
+	@apply text-4xl mb-4;
+}
+
+.prose h2 {
+	@apply text-2xl mt-10 mb-4;
+}
+
+.prose h3 {
+	@apply text-xl mt-8 mb-3;
+}
+
+.prose p {
+	@apply mb-6;
+}
+
+.prose a {
+	@apply text-navy-600 underline underline-offset-2 decoration-1 hover:text-accent transition-colors;
+}
+
+.prose ul,
+.prose ol {
+	@apply mb-6 pl-6;
+}
+
+.prose li {
+	@apply mb-2;
+}
+
+.prose blockquote {
+	@apply border-l-3 border-navy-500 pl-5 my-6 text-slate-600 italic;
+}
+
+.prose blockquote p:last-child {
+	@apply mb-0;
+}
+
+.prose code {
+	@apply font-mono text-[0.875em] px-1.5 py-0.5 bg-slate-100 rounded text-navy-700;
+}
+
+.prose pre {
+	@apply p-5 rounded-lg overflow-x-auto bg-navy-900 border border-navy-800 my-6;
+}
+
+.prose pre code {
+	@apply bg-transparent p-0 text-slate-100 text-sm;
+}
+
+.prose hr {
+	@apply border-0 border-t border-slate-200 my-10;
+}
+
+.prose img {
+	@apply rounded-lg;
+}
+
+.prose table {
+	@apply w-full my-6;
+}
+
+.prose th,
+.prose td {
+	@apply py-3 px-3 text-left border-b border-slate-200;
+}
+
+.prose th {
+	@apply font-bold text-navy-800;
+}
+
+/* Screen reader only */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
