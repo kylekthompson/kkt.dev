@@ -9,6 +9,9 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://kkt.dev",
   integrations: [mdx(), sitemap()],
+  server: {
+    allowedHosts: process.env.AMP_ORB ? true : undefined,
+  },
   vite: {
     plugins: [tailwindcss()],
   },
