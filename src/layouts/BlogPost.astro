@@ -9,7 +9,12 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<SiteLayout title={title} description={description}>
+<SiteLayout
+  title={title}
+  description={description}
+  image={heroImage}
+  type="article"
+>
   <main class="max-w-[680px] mx-auto px-6 py-12 md:py-16">
     <article>
       {
