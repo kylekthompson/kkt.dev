@@ -1,14 +1,12 @@
 ---
-import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { getPublishedPosts } from "../../posts";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getPublishedPosts();
 ---
 
 <!doctype html>
@@ -27,30 +25,34 @@ const posts = (await getCollection("blog")).sort(
       >
         Writing
       </h1>
-      <ul class="space-y-0">
-        {
-          posts.map((post) => (
-            <li class="border-b border-slate-200 last:border-b-0">
-              <a
-                href={`/blog/${post.id}/`}
-                class="block py-5 no-underline group"
-              >
-                <div class="flex justify-between items-baseline gap-4">
-                  <h2 class="text-lg font-medium text-slate-900 group-hover:text-accent transition-colors group-hover:underline group-hover:underline-offset-2">
-                    {post.data.title}
-                  </h2>
-                  <span class="text-sm text-slate-500 whitespace-nowrap">
-                    <FormattedDate date={post.data.pubDate} />
-                  </span>
-                </div>
-                <p class="mt-2 text-slate-600 text-[15px] leading-relaxed">
-                  {post.data.description}
-                </p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      {
+        posts.length > 0 ? (
+          <ul class="space-y-0">
+            {posts.map((post) => (
+              <li class="border-b border-slate-200 last:border-b-0">
+                <a
+                  href={`/blog/${post.id}/`}
+                  class="block py-5 no-underline group"
+                >
+                  <div class="flex justify-between items-baseline gap-4">
+                    <h2 class="text-lg font-medium text-slate-900 group-hover:text-accent transition-colors group-hover:underline group-hover:underline-offset-2">
+                      {post.data.title}
+                    </h2>
+                    <span class="text-sm text-slate-500 whitespace-nowrap">
+                      <FormattedDate date={post.data.pubDate} />
+                    </span>
+                  </div>
+                  <p class="mt-2 text-slate-600 text-[15px] leading-relaxed">
+                    {post.data.description}
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-slate-600">Nothing published yet. Check back soon.</p>
+        )
+      }
     </main>
     <Footer />
   </body>
