@@ -1,62 +1,55 @@
-# Astro Starter Kit: Blog
+# kkt.dev
+
+The source for [kkt.dev](https://kkt.dev), Kyle Thompson's personal website and
+blog.
+
+The site is statically generated with [Astro](https://astro.build), styled with
+[Tailwind CSS](https://tailwindcss.com), and served from Cloudflare assets.
+
+## Development
+
+The required Node.js and pnpm versions are pinned in `mise.toml`.
 
 ```sh
-pnpm create astro@latest -- --template blog
+mise install
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-Features:
+| Command             | Purpose                                       |
+| ------------------- | --------------------------------------------- |
+| `pnpm dev`          | Start the Astro development server            |
+| `pnpm check`        | Type-check Astro, TypeScript, and frontmatter |
+| `pnpm format`       | Format supported project files                |
+| `pnpm format:check` | Verify formatting without changing files      |
+| `pnpm build`        | Generate the production site in `dist/`       |
+| `pnpm preview`      | Serve the production build locally            |
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Writing
 
-## 🚀 Project Structure
+Blog entries live in `src/content/blog` as Markdown or MDX. Copy
+`draft-template.md` to a descriptive filename, replace its frontmatter and
+content, and set `draft` to `false` when it is ready to publish.
 
-Inside of your Astro project, you'll see the following folders and files:
+Drafts and entries with a future publication date are excluded from pages,
+routes, RSS, and the sitemap. Published entries are shown newest first. A hero
+image can be referenced with the optional `heroImage` frontmatter field.
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+## Project structure
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/components` contains shared page elements and metadata.
+- `src/layouts` owns the site shell and blog post presentation.
+- `src/pages` defines static routes and the RSS endpoint.
+- `src/posts.ts` defines which blog entries are published.
+- `src/styles/global.css` contains the Tailwind theme and article styles.
+- `public` contains assets served without processing.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Cloudflare deployment reads the generated `dist` directory from
+`wrangler.jsonc`.
 
 ## Credit
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The original Astro starter theme is based on
+[Bear Blog](https://github.com/HermanMartinus/bearblog/).
