@@ -23,5 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# local agent settings
+.claude/settings.local.json
+
 # Amp runtime state
 .amp/portals/*
