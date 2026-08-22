@@ -8,7 +8,11 @@ const posts = await getPublishedPosts();
 ---
 
 <SiteLayout title={`Writing | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
-  <main class="max-w-[680px] mx-auto px-6 py-12 md:py-16">
+  <main
+    id="main-content"
+    tabindex="-1"
+    class="max-w-[680px] mx-auto px-6 py-12 md:py-16"
+  >
     <h1
       class="text-3xl md:text-4xl font-bold text-navy-900 tracking-tight mb-8"
     >
